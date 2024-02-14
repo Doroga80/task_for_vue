@@ -1,0 +1,35 @@
+<!-- Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить". -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js List Example</title>
+</head>
+<body>
+  
+  <div id="app">
+    <ul>
+      <li v-for="item in items" :key="item.id">{{ item.text }}</li>
+    </ul>
+    <button @click="addItem">Добавить</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        items: []
+      },
+      methods: {
+        addItem() {
+          this.items.push({ id: this.items.length + 1, text: 'Новый элемент списка' });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
